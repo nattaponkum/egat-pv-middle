@@ -55,9 +55,10 @@ async function sendDataStore() {
                 }
                 rowObj[cancode.dashboard_field] = totalAvg;
                 rowObj.device_type = cancode.device_type;
+                console.log("Row Object:", rowObj);
+                results.push(rowObj);
             }
-            console.log("Row Object:", rowObj);
-            results.push(rowObj);
+
         }
 
         const separatedResults = results.reduce((acc, result) => {
