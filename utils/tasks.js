@@ -18,6 +18,7 @@ async function fetchCancode() {
             response.data.forEach(item => {
                 cancodeMapping[item.id] = item;
             });
+            console.log("Cancode mapping fetched successfully:", cancodeMapping);
         }
     } catch (error) {
         console.error("Error fetching cancode:", error.message);
