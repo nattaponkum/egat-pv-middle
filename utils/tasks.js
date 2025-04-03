@@ -1,8 +1,8 @@
 const axios = require('axios');
 const { dataStore, cancodeMapping } = require('./store');
 
-// const backendURL = "http://egat-pv-backend.azurewebsites.net"; // Uncomment for production
-const backendURL = "http://localhost:8081"; // Uncomment for local testing
+const backendURL = "http://egat-pv-backend.azurewebsites.net"; // Uncomment for production
+// const backendURL = "http://localhost:8081"; // Uncomment for local testing
 
 // use format string for backend URL + endpoint
 // const inverterEndpointUrl = `${backendURL}/pv`;
