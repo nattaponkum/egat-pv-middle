@@ -39,6 +39,11 @@ async function sendDataStore() {
                 section: "1",
             };
             for (const rid in ridMap) {
+                console.log(`Processing RID: ${rid}`);
+                if (!cancodeMapping) {
+                    console.log("Cancode mapping is not available yet.");
+                    continue;
+                }
                 const values = ridMap[rid];
                 const totalSum = values.reduce((a, b) => a + b, 0);
                 const count = values.length;
