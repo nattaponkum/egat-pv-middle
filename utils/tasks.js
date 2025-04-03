@@ -39,7 +39,7 @@ async function sendDataStore() {
                 section: "1",
             };
             for (const rid in ridMap) {
-                console.log(`Processing RID: ${rid}`);
+                console.log(`Processing RID: ${rid} have values: ${ridMap[rid]}`);
                 if (!cancodeMapping) {
                     console.log("Cancode mapping is not available yet.");
                     continue;
@@ -48,6 +48,7 @@ async function sendDataStore() {
                 const totalSum = values.reduce((a, b) => a + b, 0);
                 const count = values.length;
                 const totalAvg = count ? totalSum / count : 0;
+                console.log(`Total Sum for ${rid}: ${totalSum}, Count: ${count}, Average: ${totalAvg}`);
                 const cancode = Object.values(cancodeMapping).find(item => item.can_code === rid);
                 if (!cancode) {
                     console.log(`Can code ${rid} not found in cancode mapping`);
