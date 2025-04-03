@@ -39,6 +39,8 @@ async function sendDataStore() {
                 section: "1",
             };
             for (const rid in ridMap) {
+                // change ridMap[rid] to ridMap[rid].map(Number) to convert string to number
+                ridMap[rid] = ridMap[rid].map(Number);
                 console.log(`Processing RID: ${rid} have values: ${ridMap[rid]}`);
                 if (!cancodeMapping) {
                     console.log("Cancode mapping is not available yet.");
