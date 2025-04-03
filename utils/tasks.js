@@ -60,7 +60,7 @@ async function sendDataStore() {
                     continue;
                 }
                 rowObj[cancode.dashboard_field] = totalAvg.toFixed(6); // Format to 6 decimal places
-                rowObj.device_type = cancode.device_type;
+                rowObj.device_type = cancode.device_type !== 'inverter' ? 'battery' : cancode.device_type;
                 console.log("Row Object:", rowObj);
                 results.push(rowObj);
             }
