@@ -30,15 +30,16 @@ async function sendDataStore() {
         results = [];
         for (const minuteKey in dataStore) {
             const ridMap = dataStore[minuteKey];
-            rowObj = {
-                timestamp: new Date(parseInt(minuteKey))
-                    .toISOString()
-                    .replace('T', ' ')
-                    .substring(0, 19), // Format to "YYYY-MM-DD HH:mm:ss"
-                site: "1",
-                section: "1",
-            };
+            
             for (const rid in ridMap) {
+                const rowObj = {
+                    timestamp: new Date(parseInt(minuteKey))
+                        .toISOString()
+                        .replace('T', ' ')
+                        .substring(0, 19), // Format to "YYYY-MM-DD HH:mm:ss"
+                    site: "1",
+                    section: "1",
+                };
                 // change ridMap[rid] string to double that calculates the average
                 ridMap[rid] = ridMap[rid].map(value => parseFloat(value).toFixed(6)); // Convert to float and format to 6 decimal places
 
@@ -58,7 +59,7 @@ async function sendDataStore() {
                     console.log(`Can code ${rid} not found in cancode mapping`);
                     continue;
                 }
-                rowObj[cancode.dashboard_field] = totalAvg;
+                rowObj[cancode.dashboard_field] = totalAvg.toFixed(6); // Format to 6 decimal places
                 rowObj.device_type = cancode.device_type;
                 console.log("Row Object:", rowObj);
                 results.push(rowObj);
