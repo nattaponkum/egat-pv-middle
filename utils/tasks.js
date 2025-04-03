@@ -57,6 +57,10 @@ async function sendDataStore() {
             return acc;
         }, {});
 
+        // Log all unique device types
+        const uniqueDeviceTypes = Object.keys(separatedResults);
+        console.log("Unique Device Types:", uniqueDeviceTypes);
+
         console.log('Separated Results:', separatedResults);
 
         for (const deviceType in separatedResults) {
