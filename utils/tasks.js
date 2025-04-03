@@ -40,7 +40,7 @@ async function sendDataStore() {
             };
             for (const rid in ridMap) {
                 // change ridMap[rid] string to double that calculates the average
-                ridMap[rid] = ridMap[rid].map(value => value.toFixed(6)); // Convert to float with 2 decimal places
+                ridMap[rid] = ridMap[rid].map(value => parseFloat(value).toFixed(6)); // Convert to float and format to 6 decimal places
 
                 
                 console.log(`Processing RID: ${rid} have values: ${ridMap[rid]}`);
