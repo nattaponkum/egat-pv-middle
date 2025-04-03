@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
     res.json({ 
         message: "Data received",
         data: { site, section, rst, rid, rdt },
-        dataStore: dataStore[minuteKey][rid],
+        dataStore: dataStore,
         timestamp: new Date(minuteKey).toISOString().replace('T', ' ').substring(0, 19),
      });
 });
