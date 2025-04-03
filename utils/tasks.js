@@ -39,8 +39,10 @@ async function sendDataStore() {
                 section: "1",
             };
             for (const rid in ridMap) {
-                // change ridMap[rid] to ridMap[rid].map(Number) to convert string to number
-                ridMap[rid] = ridMap[rid].map(Number);
+                // change ridMap[rid] string to double that calculates the average
+                ridMap[rid] = ridMap[rid].map(value => value.toFixed(6)); // Convert to float with 2 decimal places
+
+                
                 console.log(`Processing RID: ${rid} have values: ${ridMap[rid]}`);
                 if (!cancodeMapping) {
                     console.log("Cancode mapping is not available yet.");
