@@ -49,7 +49,7 @@ async function sendDataStore() {
                     continue;
                 }
                 const values = ridMap[rid];
-                const totalSum = values.reduce((a, b) => a + b, 0);
+                const totalSum = values.reduce((a, b) => parseFloat(a) + parseFloat(b), 0); // Ensure numeric addition
                 const count = values.length;
                 const totalAvg = count ? totalSum / count : 0;
                 console.log(`Total Sum for ${rid}: ${totalSum}, Count: ${count}, Average: ${totalAvg}`);
