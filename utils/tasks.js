@@ -31,7 +31,10 @@ async function sendDataStore() {
         for (const minuteKey in dataStore) {
             const ridMap = dataStore[minuteKey];
             rowObj = {
-                timestamp: new Date(parseInt(minuteKey)).toISOString(),
+                timestamp: new Date(parseInt(minuteKey))
+                    .toISOString()
+                    .replace('T', ' ')
+                    .substring(0, 19), // Format to "YYYY-MM-DD HH:mm:ss"
                 site: "1",
                 section: "1",
             };
