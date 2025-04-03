@@ -34,5 +34,5 @@ schedule.scheduleJob('*/30 * * * * *', sendDataStore);
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`Server running on http://0.0.0.0:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
