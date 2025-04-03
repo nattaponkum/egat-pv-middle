@@ -8,7 +8,12 @@ router.post('/', (req, res) => {
     if (!dataStore[minuteKey]) dataStore[minuteKey] = {};
     if (!dataStore[minuteKey][rid]) dataStore[minuteKey][rid] = [];
     dataStore[minuteKey][rid].push(rdt);
-    res.json({ message: "Data received" });
+    res.json({ 
+        message: "Data received",
+        data: { site, section, rst, rid, rdt },
+        dataStore: dataStore[minuteKey][rid],
+        timestamp: new Date(minuteKey).toISOString(),
+     });
 });
 
 module.exports = router;
